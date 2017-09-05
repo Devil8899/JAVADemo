@@ -1,0 +1,89 @@
+/*
+final(最终、修饰符)  
+	
+final关键字的用法：
+	1. final关键字修饰一个基本类型的变量时，该变量不能重新赋值，第一次的值为最终的。
+	2. fianl关键字修饰一个引用类型变量时，  该变量不能重新指向新的对象。
+	3. final关键字修饰一个函数的时候，该函数不能被重写。
+	4. final关键字修饰一个类的时候，  该类不能被继承。
+
+
+常量 的修饰符一般为： public static final 
+
+*/
+class car
+{
+
+	//1.第一种用法
+   final String name="特斯拉";   //一次赋值 不允许再次改变值
+   double Money;
+   
+   void Driver(){
+     System.out.println("汽车品牌"+this.name+"价格"+this.Money);
+   }
+
+  car(String name,double Money){
+    // this.name=name;    //因为成员变量 是被final 关键字修饰了  不能再次赋值
+	 this.Money=Money;
+
+  }
+ car(){
+ 
+ };
+ 
+}
+
+
+
+
+class Demo
+{
+	public static void main(String[] args) 
+	{
+		//System.out.println("Hello World!");
+
+       // car c=new car("奔驰",50000000);
+        //c.Driver();
+ 
+       final car c=new car();  //修饰引用类型变量  该变量不能重新指向新的对象。
+		c.Money=12345;
+		c.Driver();
+       
+	   /*  报错  c 被修饰了
+	   c=new car();  //c重新指向新的对象。
+	   c.Money=999999;
+	   c.Driver();
+	   */
+	   printMsg(c);  //这种方式可以新的地址  形参在方法内部属于局部变量  方法之间 的局部变量没有任何关系
+
+	   //final修饰的函数不能被重写
+     /* son S=new son();
+	  S.work(); 
+	  */
+	}
+
+	public static void printMsg(car c){
+	   c=new car();
+	   c.Money=5555666;
+	   c.Driver();
+	}
+}
+
+
+
+ class fu
+{
+	final void work(){
+	  System.out.println("父亲在工作!");
+	}
+}
+class son extends fu
+{
+
+	//重写父类函数 报错
+	void work(){
+	  //super.work();
+	  System.out.println("儿子在工作!");
+
+	}
+}
