@@ -1,6 +1,7 @@
 package cn.thread;
 ///join() 方法
-//加入。 一个线程如果执行join语句，那么就有新的线程加入，执行该语句的线程必须要让步给新加入的线程先完成任务，然后才能继续执行。
+//加入。 一个线程如果执行join语句，那么就有新的线程加入，
+//执行该语句的线程必须要让步给新加入的线程先完成任务，然后才能继续执行。
 public class Demo11 {
 
 	public static void main(String[] args) {
