@@ -9,7 +9,7 @@ List接口中特有方法：
 		add(int index, E element) 
 		addAll(int index, Collection<? extends E> c) 
 	获取：
-		get(int index) 
+		get(int index)    根据索引值获取集合中的元素
 		indexOf(Object o) 
 		lastIndexOf(Object o) 
 		subList(int fromIndex, int toIndex) 
