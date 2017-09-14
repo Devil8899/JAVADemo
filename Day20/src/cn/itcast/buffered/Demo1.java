@@ -37,26 +37,29 @@ public class Demo1 {
 	
 	public static void readTest2() throws IOException{
 		//找到目标文件
-		File file = new File("F:\\a.txt");
-		
+		File file = new File("D:\\liuz\\JAVADemo\\a.txt");
+		// 建立数据的输入通道
 		FileInputStream fileInputStream= new FileInputStream(file);
 		BufferedInputStream bufferedInputStream= new BufferedInputStream(fileInputStream);
 		bufferedInputStream.read();
 		
 		
 		
-		FileOutputStream fileOutputStream= new FileOutputStream(file);
-		BufferedOutputStream bufferedOutputStream= new BufferedOutputStream(fileOutputStream);
-		fileOutputStream.write(null);
+//		FileOutputStream fileOutputStream= new FileOutputStream(file);
+//		BufferedOutputStream bufferedOutputStream= new BufferedOutputStream(fileOutputStream);
+//		fileOutputStream.write(null);
 		
 		//读取文件数据
 		int content = 0 ;
-		//疑问二：BufferedInputStream出现 的目的是了提高读取文件的效率，但是BufferedInputStream的read方法每次读取一个字节的数据
-		//而FileInputStreram每次也是读取一个字节的数据，那么BufferedInputStream效率高从何而来？
-		while((content = fileInputStream.read())!=-1){
+		while((content = bufferedInputStream.read())!=-1){
 			System.out.print((char)content);
 		}
-		
+		//疑问二：BufferedInputStream出现 的目的是了提高读取文件的效率，但是BufferedInputStream的read方法每次读取一个字节的数据
+		//而FileInputStreram每次也是读取一个字节的数据，那么BufferedInputStream效率高从何而来？
+//		while((content = fileInputStream.read())!=-1){
+//			System.out.print((char)content);
+//		}
+//		
 		//关闭资源
 		bufferedInputStream.close();//调用BufferedInputStream的close方法实际上关闭的是FileinputStream.
 	}
@@ -65,7 +68,7 @@ public class Demo1 {
 	
 	//读取文件的时候我们都是使用缓冲数组读取。效率会更加高
 	public static void readTest() throws IOException{
-		File file = new File("F:\\a.txt");
+		File file = new File("D:\\liuz\\JAVADemo\\a.txt");
 		//建立数组通道
 		FileInputStream fileInputStream = new FileInputStream(file);
 		//建立缓冲数组读取数据

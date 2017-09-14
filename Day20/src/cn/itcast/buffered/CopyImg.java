@@ -25,8 +25,12 @@ public class CopyImg {
 		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
 		//边读边写
 		int content = 0; 
-		// int length = bufferedInputStream.read(buf);   如果传入了缓冲数组，内容是存储到缓冲数组中，返回值是存储到缓冲数组中的字节个数。
-		while((content = bufferedInputStream.read())!=-1){ // 如果使用read方法没有传入缓冲数组，那么返回值是读取到的内容。
+		// int length = bufferedInputStream.read(buf);  
+		
+		//**********************如果传入了缓冲数组，内容是存储到缓冲数组中，返回值是存储到缓冲数组中的字节个数。
+		
+		while((content = bufferedInputStream.read())!=-1){ 
+			// 如果使用read方法没有传入缓冲数组，那么返回值是读取到的内容。
 			bufferedOutputStream.write(content);
 //			bufferedOutputStream.flush();
 		}

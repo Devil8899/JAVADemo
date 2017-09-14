@@ -21,8 +21,10 @@ FileOutputStream如何使用呢？
 FileOutputStream要注意的细节：
 	1. 使用FileOutputStream 的时候，如果目标文件不存在，那么会自动创建目标文件对象。 
 	2. 使用FileOutputStream写数据的时候，如果目标文件已经存在，那么会先清空目标文件中的数据，然后再写入数据。
-	3.使用FileOutputStream写数据的时候, 如果目标文件已经存在，需要在原来数据基础上追加数据的时候应该使用new FileOutputStream(file,true)构造函数，第二参数为true。
-	4.使用FileOutputStream的write方法写数据的时候，虽然接收的是一个int类型的数据，但是真正写出的只是一个字节的数据，只是
+	3.使用FileOutputStream写数据的时候, 如果目标文件已经存在，需要在原来数据基础上追加数据的时候应该使用new
+	 FileOutputStream(file,true)构造函数，第二参数为true。
+	4.使用FileOutputStream的write方法写数据的时候，虽然接收的是一个int类型的数据，
+	但是真正写出的只是一个字节的数据，只是
 	把低八位的二进制数据写出，其他二十四位数据全部丢弃。
 	 
 	 00000000-000000000-00000001-11111111   511
@@ -34,14 +36,15 @@ FileOutputStream要注意的细节：
 public class Demo1 {
 	
 	public static void main(String[] args) throws IOException {
-		writeTest3();
+//		writeTest3();
+		writeTest1();
 	}
 	
 	
-	//使用字节数组把数据写出。
+	//3.使用字节数组把数据写出。
 	public static void writeTest3() throws IOException{
 		//找到目标文件
-		File file = new File("F:\\b.txt");
+		File file = new File("D:\\liuz\\JAVADemo\\a.txt");
 		//建立数据输出通道
 		FileOutputStream fileOutputStream = new FileOutputStream(file);
 		//把数据写出。
@@ -55,10 +58,10 @@ public class Demo1 {
 		
 	
 	
-	//使用字节数组把数据写出。
+	//2.使用字节数组把数据写出。
 	public static void writeTest2() throws IOException{
 		//找到目标文件
-		File file = new File("F:\\b.txt");
+		File file = new File("D:\\liuz\\JAVADemo\\a.txt");
 		//建立数据输出通道
 		FileOutputStream fileOutputStream = new FileOutputStream(file,true);
 		//把数据写出。
@@ -70,10 +73,10 @@ public class Demo1 {
 	
 	
 	
-	//每次只能写一个字节的数据出去。
+	//1.每次只能写一个字节的数据出去。
 	public static void writeTest1() throws IOException{
 		//找到目标文件
-		File file = new File("F:\\b.txt");
+		File file = new File("D:\\liuz\\JAVADemo\\a.txt");
 		//建立数据的输出通道
 		FileOutputStream fileOutputStream = new FileOutputStream(file);
 		//把数据写出

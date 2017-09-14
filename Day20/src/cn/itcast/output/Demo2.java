@@ -20,18 +20,25 @@ public class Demo2 {
 	
 	
 	public static void main(String[] args) throws IOException {
-		readTest();
+		writeTest();
+		
+		//readTest();
 	}
 	
 	public static void readTest() throws IOException{
 		//找到目标文件
-		File file = new File("F:\\c.txt");
+		File file = new File("D:\\liuz\\JAVADemo\\a.txt");
 		//建立数据的输入通道
 		FileInputStream fileInputStream = new FileInputStream(file);
 		//建立缓冲输入读取文件数据
 		byte[] buf = new byte[4];  //读取4个字节的数据
 		//读取文件数据
-		int length = fileInputStream.read(buf); 
+		int length = 0;
+		while ((length = fileInputStream.read()) != -1) {	
+				System.out.print("内容"+(char) length);
+		}
+		
+		
 		System.out.println("字节数组的内容："+ Arrays.toString(buf));
 		//关闭资源
 		fileInputStream.close();
@@ -44,11 +51,12 @@ public class Demo2 {
 
 	public static void writeTest() throws FileNotFoundException, IOException {
 		//找到目标文件
-		File file = new File("F:\\c.txt");
+		File file = new File("D:\\liuz\\JAVADemo\\a.txt");
 		//建立数据的输出通道
 		FileOutputStream fileOutputStream = new FileOutputStream(file);
 		//把数据写出
 		fileOutputStream.write(511);
+//		fileOutputStream.write('9');
 		//关闭资源
 		fileOutputStream.close();
 	}

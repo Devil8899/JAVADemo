@@ -54,7 +54,7 @@ public class Demo1 {
 		// 读取文件中的数据
 		int content = fileInputStream.read();
 		// read() 每次只能读取一个字节的数据，把读取的数据返回。返回的是2进制数据
-		System.out.println("读到的内容是：" + (char) content);
+		System.out.println("读到的内容是：" + (char) content);  //// 如果使用read方法没有传入缓冲数组，那么返回值是读取到的内容。
 		// 关闭资源 实际上就是释放资源。
 		fileInputStream.close();
 	}
@@ -99,11 +99,12 @@ public class Demo1 {
 		// 建立数据的输入通道
 		FileInputStream fileInputStream = new FileInputStream(file);
 		// 建立缓冲字节数组，读取文件的数据。
-		byte[] buf = new byte[1024]; // 相当于超市里面的购物车。 每次读取1024个字节的数据 使用2进制进行存储
-		int length = fileInputStream.read(buf);
+		byte[] buf = new byte[1024]; 
+		// 相当于超市里面的购物车。 每次读取1024个字节的数据 使用2进制进行存储
+		int length = fileInputStream.read(buf);  //read 本来只能一次读取1字节的数据
 		// 如果使用read读取数据传入字节数组，那么数据是存储到字节数组中的，
 		// 而这时候read方法的返回值是表示的是本次读取了几个字节数据到字节数组中。
-		System.out.println("length:" + length);
+		System.out.println("length:" + length);  //length代表了所有的读取字节
 		System.out.println("__________________________________________");
 		// 使用字节数组构建字符串
 		String content = new String(buf, 0, length);
