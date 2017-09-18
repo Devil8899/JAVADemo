@@ -40,7 +40,7 @@ FileWriter要注意的事项：
 
 使用字节流的应用场景： 如果读写的数据都不需要转换成字符的时候，则使用字节流。 
  
-
+使用字符流拷贝图片会造成数据的一个丢失。
 
  */
 public class Demo4 {
@@ -69,7 +69,7 @@ public class Demo4 {
 	}
 	
 	
-	// 使用字符流不能拷贝图片
+	// 使用字符流不能拷贝图片  因为图片是以字节存储的
    public static void  copyFile() throws IOException{
 	/*   File file1=new File("D:\\liuz\\JAVADemo\\a.txt");
 	   File file2=new File("D:\\2.txt");
