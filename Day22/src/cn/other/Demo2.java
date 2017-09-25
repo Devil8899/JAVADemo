@@ -48,7 +48,7 @@ public class Demo2 {
 		File dir1 = new File("D:\\liuz\\JAVADemo\\music");
 		// 通过目标文件夹找到所有的MP3文件，然后把所有的MP3文件添加到vector中。
 		File[] files = dir1.listFiles();
-	    //排序
+	    //排序  小到大
 	    for (int i = 0;i < files.length;i++){
 	        for(int j = i+1;j < files.length;j++){
 	            if (Integer.parseInt(files[i].getName().replace(".mp3",""))> Integer.parseInt(files[j].getName().replace(".mp3",""))){

@@ -12,10 +12,10 @@ import java.util.Vector;
 /*
 SequenceInputStream(序列流)
 这个类有两个构造函数
-1.
+1.可以将多个文件序列在一起
 SequenceInputStream(Enumeration<? extends InputStream> e) 
 初始化新创建的 SequenceInputStream记住的说法，它必须产生对象的运行时类型是 InputStream Enumeration。  
-2.
+2.只能2个文件序列在一起
 SequenceInputStream(InputStream s1, InputStream s2) 
 初始化新创建的 SequenceInputStream记住两个参数，将其写入的命令，第一 s1然后 s2，提供字节是从这 SequenceInputStream读。  
 
@@ -114,7 +114,7 @@ public class Demo1 {
 			//创建一个迭代器  循环集合使用
 			Enumeration<FileInputStream> e = vc.elements();
 			
-			//创建序列流对象
+			//创建序列流对象  一个接一个读取
 			SequenceInputStream seq =new SequenceInputStream(e);
 
 			//读取文件数据
