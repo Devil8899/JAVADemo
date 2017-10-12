@@ -37,14 +37,14 @@ class Demo1
 		iph.call();
 		*/
 
-
+       //调用抽象方法
        iphone iph=new iphone();
 	   iph.callSomebody();
 
 	 //  mobile new mobile();  抽象类 不能创建对象
 
       linAd ad=new linAd("华为",100);
-	  ad.call();
+	  ad.call();  //调用非抽象方法
 
 	  mobile.call2();
  	}

@@ -58,8 +58,8 @@ public class Demo2 {
 		System.out.println("money:"+ moeny);*/
 		
 		//确认框
-//		int num = JOptionPane.showConfirmDialog(frame, "你确认要卸载吗？");
-//		System.out.println(num);
+		int num = JOptionPane.showConfirmDialog(frame, "你确认要卸载吗？");
+		System.out.println(num);
 	}
 	
 }

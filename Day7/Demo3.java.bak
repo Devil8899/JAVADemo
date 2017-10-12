@@ -29,15 +29,16 @@ class Demo3
 
 class Teacher
 {
-    int i=100000;
-   
 	{                         //构造代码块
 	  i=200000; 
 	
 	}
-    Teacher(){
+    int i=100000;
+   
+	
+   /* Teacher(){               //构造函数
 	  i=300000;
-	}
+	}*/
 }
 
 
@@ -49,7 +50,6 @@ class test
    
 	{
 	  i=2; 
-	
 	}
 	int i=1;
     /*test(){

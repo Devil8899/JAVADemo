@@ -7,7 +7,6 @@ final关键字的用法：
 	3. final关键字修饰一个函数的时候，该函数不能被重写。
 	4. final关键字修饰一个类的时候，  该类不能被继承。
 
-
 常量 的修饰符一般为： public static final 
 
 */
@@ -56,10 +55,10 @@ class Demo
 	   */
 	   printMsg(c);  //这种方式可以新的地址  形参在方法内部属于局部变量  方法之间 的局部变量没有任何关系
 
-	   //final修饰的函数不能被重写
-     /* son S=new son();
+	   //final修饰的函数不能被重写 覆盖
+      son S=new son();
 	  S.work(); 
-	  */
+	  
 	}
 
 	public static void printMsg(car c){
@@ -81,9 +80,9 @@ class son extends fu
 {
 
 	//重写父类函数 报错
-	void work(){
-	  //super.work();
-	  System.out.println("儿子在工作!");
+	/*void work(){
+	//  super.work();
+	 // System.out.println("儿子在工作!");
 
-	}
+	}*/
 }

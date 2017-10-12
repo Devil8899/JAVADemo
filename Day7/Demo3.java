@@ -49,7 +49,6 @@ class test
    
 	{
 	  i=2; 
-	
 	}
 	int i=1;
     /*test(){

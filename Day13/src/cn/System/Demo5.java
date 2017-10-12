@@ -5,19 +5,14 @@ import java.util.Random;
 /*
 随机数类
 Random
-
-
 */
 public class Demo5 {
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	
 		Random random = new Random();
 		int randomNum = random.nextInt(10)+1; //产生 的 随机数就是0-10之间
 		int num=  random.nextInt(11);         //产生 的 随机数就是0-10之间
-		System.out.println("随机数："+ num);
-		
+		System.out.println("随机数："+ num);	
 		//随机数练习
 		char[] car={'中','国','A','B','C'};
 		System.out.println(car.length);  //数组长度为5
@@ -28,9 +23,7 @@ public class Demo5 {
 			buid.append(car[num2]);   //通过随机数到数组中取值 并且循环4次
 		}
 		  System.out.println(buid.toString());
-		}
-	
-		
+		}		
 	}
 
 

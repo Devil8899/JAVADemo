@@ -1,15 +1,10 @@
 /*
 匿名内部类：没有类名的类就称作为匿名内部类。  一般也写在方法内部 和 局部内部类一样
-
 匿名内部类的好处：简化书写。
-
 匿名内部类的使用前提：必须存在继承或者实现关系才能使用。
-
-
 匿名内部类一般是用于实参。
-
-//匿名内部类 ：匿名内部类只是没有类名，其他的一概成员都是具备的。
-//匿名内部类 也可以实现多态 但是不能强制转换  调用子类同名的方法;
+匿名内部类 ：匿名内部类只是没有类名，其他的一概成员都是具备的。
+匿名内部类 也可以实现多态 但是不能强制转换  调用子类同名的方法;
 
 
 */
@@ -30,7 +25,7 @@ abstract class father
 
 	public void eat(){
 	  //1. 局部类 定义在方法内部
-	  class son1 extends father   //继承
+	  class son1 extends father    //继承
 	  { 
           public void work(){      //重写方法
 		      System.out.println("son1 工作");
@@ -49,6 +44,7 @@ abstract class father
 	  father fa=new son1();
       son1 s2=(son1)fa;  //转换
 	  s2.play();
+
 	  System.out.println("____________________________________");
 	   //匿名类
 	   //匿名内部类 ：匿名内部类只是没有类名，其他的一概成员都是具备的。
@@ -57,14 +53,21 @@ abstract class father
 	     public void work(){      //重写方法
 		      System.out.println("son2 工作 我是匿名类 我继承了father类 但是我没有类名");
 		  } 
-	  }.work();
+		 public void print(){    //子类都有方法
+		  System.out.println("jskdfjk");
+		 }
+	  }.print();
      //2.也可以多态来调用  但是如果子类的方法是独有的 无法强制转换 只能通过局部类来实现
 	  //这里为什么抽象类可以实例化 因为   匿名内部类与father 是继承 的关系。  目前是创建father子类的对象.  后面的new father 是子类对象
 	  father ft=new father(){
 	      public void work(){      //重写方法
 		      System.out.println("son3 工作 我是匿名类 我继承了father类 但是我没有类名");
 		  } 
-	  
+	     
+		  //这个写法不行 因为匿名内部类是一个子类对象，当用father的ft引用指向时，就被提升为了father类型，而编译时检查father类中是否有print2方法，所以编译失败
+		  /*public void print2(){
+            System.out.println("子类特有方法");
+		  }*/
 	  };
 
      //调用
@@ -78,26 +81,21 @@ abstract class father
 
 //____________________________________________________________________
 //接口  匿名类实现
-
 interface I_workable
 {
     void code();
-
 }
-
 //其它类
 class keyd
 {
-	//实现接口
+	//匿名内部类写在一个方法内部
     public void printcode(){
 		//创建一个匿名内部类的对象   
-	   new I_workable(){     //创建一个实现类 匿名形式的 和 class myable  imperlates I_workable 一样  
+	   new I_workable(){     //创建一个实现类  匿名形式的 和  class myable  imperlates I_workable 一样  
 	        public void code(){
 			  System.out.println("这是一个匿名对象类 实现了接口");
 			}
-	   }.code();
-	   
-	
+	   }.code(); //这种方式实现了接口的方法和调用
 	}
 
 
@@ -111,27 +109,18 @@ class Demo5
 {
 	public static void main(String[] args) 
 	{
-		//System.out.println("Hello World!");
-		person per=new person();
-		per.eat();
+         new person().eat();
 
-		keyd ke=new keyd();
-		ke.printcode();
-
-        //实参传入
+        //匿名类的使用作为实参传入
          test(
 		    new  I_workable(){    //将匿名对象类作为实参 传入
 		    public  void code(){
-			  System.out.println("匿名对象类 作为实参传入");   //将接口的方法实现了
-			  
+			  System.out.println("匿名对象类 作为实参传入");   //将接口的方法实现了  
 			  }
-		 }
-		 );
-
+		 });
 		 keyd ke1=new keyd();
 		 System.out.println(ke1.toString());  
-	}
-     
+	}  
 	//匿名内部类一般是用于实参
 	public static void test(I_workable  ab){   //这里相当与传进了一个实现接口的类对象 只是没有类名  I_workable wo=new 实现类();
 	     ab.code();

@@ -17,6 +17,7 @@ class Demo2
         int[] arr = {23,10,9}; //对象是 复制一份地址给方法 改变会改变之前的变量值
 		changeArr(arr,1,2);
 		System.out.println("数的元素："+ Arrays.toString(arr));//23, 9 ,10
+		System.out.println("数组的length："+arr.length);
 	}
     public static int changeValue(int c){
 		 c+=10;

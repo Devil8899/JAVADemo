@@ -15,13 +15,10 @@ System类常用的方法：
 		length - 要复制的数组元素的数量。
 		
 	2. currentTimeMillis()  返回当前时间以毫秒为单位。       重点
-	3. exit(int status)     退出jvm  如果参数是0表示正常退出jvm，非0表示异常退出jvm。    一般
+	3. exit(int status)     退出jvm  如果参数是0表示正常退出jvm，非0表示异常退出jvm.
     4. gc()                 建议jvm赶快启动垃圾回收期回收垃圾。
 	5. getenv(String name)  根据环境变量的名字获取环境变量。
-	6. getProperty(key)     获取指定的键指示的系统属性。 
-	
-	
-		
+	6. getProperty(key)     获取指定的键指示的系统属性。 	
 	finalize()  如果一个对象被垃圾回收器回收的时候gc方法，会先调用对象的finalize()方法。
 */
 public class Demo1 {
